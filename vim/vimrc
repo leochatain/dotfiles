@@ -42,7 +42,6 @@ autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bu
 
 " Command T
 noremap <C-m> <Esc>:CommandT<CR>
-noremap <leader> O <Esc>:CommandTFlush<CR>
 noremap <C-b> <Esc>:CommandTBuffer<CR>
 
 " Supertab
@@ -52,4 +51,3 @@ let g:SuperTabDefaultCompletionType = "context"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 map <F2> :NERDTreeToggle<CR>
-map <F12> set pastetoggle<CR>
