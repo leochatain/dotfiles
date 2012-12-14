@@ -32,6 +32,9 @@ set incsearch " do incremental searching
 set hlsearch  "highlight search"
 set nu  " Show line numbers
 
+" toggle fold with space
+nnoremap <Space> za
+
 " Clang
 set completeopt-=preview
 
