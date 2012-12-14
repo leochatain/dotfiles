@@ -10,13 +10,14 @@ if has('gui_running')
   set guifont=Monospace\ 9
   set guioptions-=T
   set columns=84
+
+  " Highlight code after 80 columns
+  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+  match OverLength /\%81v.\+/
+
 else
   set background=light
 endif
-
-" Highlight code after 80 columns
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
 
 set wildmenu 
 
