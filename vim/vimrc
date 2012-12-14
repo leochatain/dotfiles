@@ -52,5 +52,4 @@ let g:SuperTabDefaultCompletionType = "context"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 map <F2> :NERDTreeToggle<CR>
-
-
+map <F12> set pastetoggle<CR>
