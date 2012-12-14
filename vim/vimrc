@@ -10,13 +10,14 @@ if has('gui_running')
   set guifont=Monospace\ 9
   set guioptions-=T
   set columns=84
+
+  " Highlight code after 80 columns
+  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+  match OverLength /\%81v.\+/
+
 else
   set background=light
 endif
-
-" Highlight code after 80 columns
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
 
 set wildmenu 
 
@@ -44,7 +45,6 @@ autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bu
 
 " Command T
 noremap <C-m> <Esc>:CommandT<CR>
-noremap <leader> O <Esc>:CommandTFlush<CR>
 noremap <C-b> <Esc>:CommandTBuffer<CR>
 
 " Supertab
@@ -54,5 +54,3 @@ let g:SuperTabDefaultCompletionType = "context"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 map <F2> :NERDTreeToggle<CR>
-
-
