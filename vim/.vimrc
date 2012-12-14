@@ -1,0 +1,55 @@
+" Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
+syntax enable
+
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+  set guifont=Monospace\ 9
+  set guioptions-=T
+  set columns=84
+else
+  set background=light
+endif
+
+" Highlight code after 80 columns
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
+
+set wildmenu 
+
+set autoindent " auto indentation
+set smartindent " smart indentation
+set softtabstop=2
+set tabstop=2
+set shiftwidth=2 " indentation size (used on auto indentation)
+set expandtab " use spaces instead of tab
+set ruler " show the cursor position all the time
+set showcmd " display incomplete commands
+set incsearch " do incremental searching
+set hlsearch  "highlight search"
+set nu  " Show line numbers
+
+" Clang
+set completeopt-=preview
+
+" CLoseTag
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+" Command T
+noremap <C-m> <Esc>:CommandT<CR>
+noremap <leader> O <Esc>:CommandTFlush<CR>
+noremap <C-b> <Esc>:CommandTBuffer<CR>
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
+
+" Nerdtree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+map <F2> :NERDTreeToggle<CR>
+
+
