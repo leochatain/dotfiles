@@ -60,3 +60,12 @@ let g:SuperTabDefaultCompletionType = "context"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 map <F2> :NERDTreeToggle<CR>
+
+" Quickfix
+map ,c :copen<CR>:cc<CR>
+map ,n :cn<CR>
+map ,p :cp<CR>
+map ,f :cfirst<CR>
+map ,l :clast<CR>
+map ,x :cclose<CR>
+
