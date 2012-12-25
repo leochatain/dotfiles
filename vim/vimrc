@@ -33,11 +33,17 @@ set incsearch " do incremental searching
 set hlsearch  "highlight search"
 set nu  " Show line numbers
 
+set foldmethod=indent " indent based fold
+
 " toggle fold with space
 nnoremap <Space> za
 
 " Clang
 set completeopt-=preview
+"let g:clang_user_options='|| exit 0'
+let g:clang_user_options='-std=c++0x -x c++'
+map <F9>  :call g:ClangUpdateQuickFix()<CR>
+autocmd BufWritePost *.c,*.cpp,*.cxx,*.cc call g:ClangUpdateQuickFix() " update on save
 
 " CLoseTag
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
