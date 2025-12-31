@@ -4,7 +4,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="kolo"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git)
+plugins=(gitfast colored-man-pages python)
 
 source $ZSH/oh-my-zsh.sh
 
