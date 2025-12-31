@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal configuration files for git, tmux, vim, and zsh.
+Personal configuration files for git, tmux, vim, zsh, and ghostty.
 
 ## Features
 
@@ -97,7 +97,15 @@ Personal configuration files for git, tmux, vim, and zsh.
    stow */
    ```
 
-3. Reload shell:
+3. **(Optional) Ghostty terminal emulator (macOS only):**
+
+   [Ghostty](https://ghostty.org/) is a modern, GPU-accelerated terminal emulator. If you use it:
+   ```bash
+   brew install --cask ghostty
+   stow ghostty
+   ```
+
+4. Reload shell:
    ```bash
    source ~/.zshrc
    ```

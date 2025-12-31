@@ -1,13 +1,42 @@
+# ====================
+# Ghostty Configuration
+# ====================
+# Ghostty is a fast, feature-rich, and cross-platform terminal emulator
+# https://ghostty.org/
+
+# ============
+# Font Settings
+# ============
 font-family = Monaco
 font-style = Regular
 font-size = 13
 
-
-cursor-style-blink = false
-shell-integration-features = no-cursor
+# ==============
+# Cursor Settings
+# ==============
+# Use a block cursor without blinking for better visibility and reduced distraction
 cursor-style = block
+cursor-style-blink = false
 
-shell-integration=zsh
+# Disable shell integration cursor features to avoid cursor shape changes
+shell-integration-features = no-cursor
+
+# ===================
+# Shell Integration
+# ===================
+# Enable zsh shell integration for better terminal features
+shell-integration = zsh
+
+# ============
+# Key Bindings
+# ============
+# Shift+Enter inserts a literal newline character
+# Useful for multi-line commands or pasting
 keybind = shift+enter=text:\n
 
+# ==================
+# macOS-Specific
+# ==================
+# Make the left Option key behave as Alt
+# This is useful for Emacs keybindings and other shortcuts
 macos-option-as-alt = left
