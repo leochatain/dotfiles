@@ -33,15 +33,20 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # Case-insensitive
 # ============================================================================
 # PATH Modifications
 # ============================================================================
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# Platform-specific paths
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # macOS (Homebrew)
+  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+  export JAVA_HOME="/opt/homebrew/opt/openjdk"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Linux - add your Linux-specific paths here if needed
+  # Example: export PATH="/usr/local/bin:$PATH"
+  :
+fi
+
+# Common paths (all platforms)
 export PATH="$HOME/.cargo/bin:$PATH"
-
-
-# ============================================================================
-# Environment Variables
-# ============================================================================
-export JAVA_HOME="/opt/homebrew/opt/openjdk"
 
 
 # ============================================================================

@@ -36,5 +36,11 @@ set smartcase               " Case-sensitive if search contains uppercase
 " ============================================================================
 " System Integration
 " ============================================================================
-set clipboard=unnamed       " Use system clipboard for yank/paste (macOS)
+" Platform-specific clipboard integration
+if has('mac')
+  set clipboard=unnamed       " macOS clipboard
+elseif has('unix')
+  set clipboard=unnamedplus   " Linux clipboard (X11/Wayland)
+endif
+
 set backspace=indent,eol,start  " Allow backspace over everything in insert mode
