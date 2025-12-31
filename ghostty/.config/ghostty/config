@@ -1,0 +1,13 @@
+font-family = Monaco
+font-style = Regular
+font-size = 13
+
+
+cursor-style-blink = false
+shell-integration-features = no-cursor
+cursor-style = block
+
+shell-integration=zsh
+keybind = shift+enter=text:\n
+
+macos-option-as-alt = left
