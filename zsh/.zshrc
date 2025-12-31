@@ -10,6 +10,27 @@ source $ZSH/oh-my-zsh.sh
 
 
 # ============================================================================
+# History Configuration
+# ============================================================================
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY          # Share history between sessions
+setopt HIST_IGNORE_DUPS       # Don't record duplicates
+setopt HIST_IGNORE_SPACE      # Don't record commands starting with space
+setopt HIST_VERIFY            # Show command before running from history
+
+
+# ============================================================================
+# Completion Settings
+# ============================================================================
+setopt COMPLETE_IN_WORD       # Complete from both ends of word
+setopt ALWAYS_TO_END          # Move cursor to end after completion
+setopt AUTO_MENU              # Show menu on successive tab press
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # Case-insensitive
+
+
+# ============================================================================
 # PATH Modifications
 # ============================================================================
 export PATH="/opt/homebrew/bin:$PATH"
