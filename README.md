@@ -7,6 +7,11 @@ Personal configuration files for git, tmux, vim, and zsh.
 ### Zsh
 - **oh-my-zsh** with curated plugins (gitfast, colored-man-pages, python)
 - **fzf** - Fuzzy finder for command history, files, and directories
+  - Integrated with **fd** for faster file searching
+  - Smart previews using **bat** (files) and **eza** (directories)
+- **fd** - Fast file finder (replaces `find`)
+- **bat** - Syntax-highlighted file viewer (replaces `cat`)
+- **eza** - Modern ls replacement with icons and git integration
 - **zsh-autosuggestions** - Command suggestions based on history
 - **zsh-syntax-highlighting** - Real-time syntax highlighting
 - Cross-platform support (macOS and Linux)
@@ -30,7 +35,8 @@ Personal configuration files for git, tmux, vim, and zsh.
 - Clean UI with line numbers
 
 ### Git
-- Helpful aliases (`lg`, `st`, `amend`, `undo`, `review`)
+- **delta** - Syntax-highlighted diffs with side-by-side view
+- Helpful aliases (`lg`, `st`, `amend`, `undo`, `uncommit`)
 - Better diff algorithm (histogram)
 - Auto-prune on fetch
 - Rebase by default on pull
@@ -47,15 +53,31 @@ Personal configuration files for git, tmux, vim, and zsh.
 
 2. Install dependencies (macOS):
    ```bash
-   brew install stow fzf zsh-autosuggestions zsh-syntax-highlighting
+   brew install stow fzf fd bat eza git-delta zsh-autosuggestions zsh-syntax-highlighting
    ```
 
    On Linux:
    ```bash
    # Debian/Ubuntu
-   sudo apt install stow fzf
+   sudo apt install stow fzf fd-find bat git-delta
+
+   # Install eza (not in default repos)
+   https://github.com/eza-community/eza/blob/main/INSTALL.md
+
+   # Install zsh plugins
    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+   ```
+
+   **Note:** On some Linux distributions, tools have different names:
+   - `bat` is installed as `batcat`
+   - `fd` is installed as `fd-find`
+
+   Create symlinks if needed:
+   ```bash
+   mkdir -p ~/.local/bin
+   ln -s /usr/bin/batcat ~/.local/bin/bat
+   ln -s /usr/bin/fdfind ~/.local/bin/fd
    ```
 
 ### Setup

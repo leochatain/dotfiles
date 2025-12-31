@@ -62,14 +62,74 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Aliases
 # ============================================================================
 alias python="python3"
-alias ll="ls -lah"
+alias ll="eza --long --no-time --no-permissions --no-filesize --no-user --icons --git"
+alias lt="eza --tree --level=2"
+
+# bat - Better cat with syntax highlighting
+if command -v bat &> /dev/null; then
+  alias cat="bat"
+  export BAT_THEME="1337"
+fi
 
 
 # ============================================================================
 # External Tool Configurations
 # ============================================================================
 
-# Google Cloud SDK
+# --- fzf + fd Integration ---
+# Use fd instead of find for better performance and smarter defaults
+# fd automatically respects .gitignore and is much faster
+
+# Default command for fzf (Ctrl+T): find files and directories
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Preview command: show directory tree with eza or file content with bat
+export _fzf_preview_cmd="if [ -d {} ]; then eza -a --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
+
+# Ctrl+T options: fuzzy find files/directories with preview
+export FZF_CTRL_T_OPTS="
+  --preview '$_fzf_preview_cmd'
+  --preview-window right:60%:wrap
+  --bind 'ctrl-/:toggle-preview'
+"
+
+# Alt+C command: find directories only
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+# Alt+C options: directory navigation with tree preview
+export FZF_ALT_C_OPTS="
+  --preview 'eza -a --tree --color=always {} | head -200'
+  --preview-window right:60%:wrap
+  --bind 'ctrl-/:toggle-preview'
+"
+
+# Context-aware fzf completions (triggered with **)
+# Provides custom previews based on the command being used
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza -a --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
+  esac
+}
+
+# Use fd for generating path completions (vim **<TAB>, cat **<TAB>, etc.)
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+
+# Use fd for generating directory completions (cd **<TAB>)
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+
+
+# --- Google Cloud SDK ---
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
