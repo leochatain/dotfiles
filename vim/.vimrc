@@ -1,21 +1,40 @@
+" ============================================================================
+" Basic Settings
+" ============================================================================
 filetype plugin indent on
 syntax on
 
-set autoindent " auto indentation
-set smartindent " smart indentation
-set softtabstop=2
-set tabstop=2
-set shiftwidth=2 " indentation size (used on auto indentation)
-set expandtab " use spaces instead of tab
-set ruler " show the cursor position all the time
-set showcmd " display incomplete commands
-set incsearch " do incremental searching
-set hlsearch  "highlight search"
-set nu  " Show line numbers
+" ============================================================================
+" Indentation
+" ============================================================================
+set autoindent              " Copy indent from current line when starting new line
+set smartindent             " Smart autoindenting for C-like programs
+set softtabstop=2           " Number of spaces per tab when editing
+set tabstop=2               " Number of spaces that a tab counts for
+set shiftwidth=2            " Number of spaces for each indentation step
+set expandtab               " Use spaces instead of tabs
 
-set wildmenu 
+" ============================================================================
+" UI and Display
+" ============================================================================
+set ruler                   " Show cursor position in status line
+set showcmd                 " Show incomplete commands in status line
+set nu                      " Show line numbers
+set wildmenu                " Enhanced command-line completion
+set background=light        " Optimize colors for light background
+set showmatch               " Highlight matching brackets/parentheses
+set lazyredraw              " Don't redraw during macros (improves performance)
 
-set background=light
+" ============================================================================
+" Search
+" ============================================================================
+set incsearch               " Show matches as you type
+set hlsearch                " Highlight all search matches
+set ignorecase              " Case-insensitive search
+set smartcase               " Case-sensitive if search contains uppercase
 
-" Fix weird mac backspace issue
-set backspace=indent,eol,start
+" ============================================================================
+" System Integration
+" ============================================================================
+set clipboard=unnamed       " Use system clipboard for yank/paste (macOS)
+set backspace=indent,eol,start  " Allow backspace over everything in insert mode

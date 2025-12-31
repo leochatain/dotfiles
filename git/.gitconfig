@@ -46,6 +46,12 @@
 [fetch]
   prune = true
 
+[branch]
+  autoSetupMerge = always
+
+[merge]
+  conflictstyle = diff3
+
 [alias]
   st = status -sb
   co = checkout
