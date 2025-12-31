@@ -1,4 +1,13 @@
 # ============================================================================
+# Platform Configuration
+# ============================================================================
+# Cache brew prefix for performance (avoid multiple brew --prefix calls)
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export BREW_PREFIX="/opt/homebrew"
+fi
+
+
+# ============================================================================
 # oh-my-zsh Configuration
 # ============================================================================
 export ZSH="$HOME/.oh-my-zsh"
@@ -36,9 +45,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # Case-insensitive
 # Platform-specific paths
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # macOS (Homebrew)
-  export PATH="/opt/homebrew/bin:$PATH"
-  export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-  export JAVA_HOME="/opt/homebrew/opt/openjdk"
+  export PATH="$BREW_PREFIX/bin:$PATH"
+  export PATH="$BREW_PREFIX/opt/openjdk/bin:$PATH"
+  export JAVA_HOME="$BREW_PREFIX/opt/openjdk"
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   # Linux - add your Linux-specific paths here if needed
   # Example: export PATH="/usr/local/bin:$PATH"
@@ -63,3 +72,18 @@ alias ll="ls -lah"
 # Google Cloud SDK
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+
+# ============================================================================
+# Shell Enhancements (must be at end)
+# ============================================================================
+
+# fzf - Fuzzy finder
+[ -f $BREW_PREFIX/opt/fzf/shell/completion.zsh ] && source $BREW_PREFIX/opt/fzf/shell/completion.zsh
+[ -f $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh ] && source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh
+
+# zsh-autosuggestions
+[ -f $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting must be at the end of the file
+[ -f $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
