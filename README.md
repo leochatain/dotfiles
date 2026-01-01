@@ -31,12 +31,6 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
 - True color support
 - New windows/panes open in current directory
 
-### Vim
-- Cross-platform clipboard integration (macOS/Linux)
-- Smart indentation (2 spaces)
-- Enhanced search (incremental, smart case)
-- Clean UI with line numbers
-
 ### Git
 - **delta** - Syntax-highlighted diffs with side-by-side view
 - Helpful aliases (`lg`, `st`, `amend`, `undo`, `uncommit`)
@@ -59,7 +53,7 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
    brew install stow fzf fd bat eza git-delta zsh-autosuggestions zsh-syntax-highlighting powerlevel10k font-meslo-lg-nerd-font
    ```
 
-   On Linux:
+   On Linux (warning - yet untested):
    ```bash
    # Debian/Ubuntu
    sudo apt install stow fzf fd-find bat git-delta
