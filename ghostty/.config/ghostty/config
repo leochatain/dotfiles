@@ -7,11 +7,9 @@
 # ============
 # Font Settings
 # ============
-#font-family = Monaco
-font-family = MesloLGS Nerd Font Mono
+font-family = MesloLGS Nerd Font Mono # Monaco
 font-style = Regular
 font-size = 14
-#font-size = 13
 
 # ==============
 # Cursor Settings
