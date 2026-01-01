@@ -18,7 +18,7 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
 - **zsh-autosuggestions** - Command suggestions based on history
 - **zsh-syntax-highlighting** - Real-time syntax highlighting
 - Cross-platform support (macOS and Linux)
-- Optimized for performance
+- Optimized for performance (lazy loading patterns for less often used tools like gcloud)
 
 ### Tmux
 - **Prefix:** `Ctrl+A` (instead of default Ctrl+B)
@@ -107,7 +107,7 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
    stow */
    ```
 
-3. **(Optional) Ghostty terminal emulator (macOS only):**
+3. **(Optional) Ghostty terminal emulator (macOS instructions):**
 
    [Ghostty](https://ghostty.org/) is a modern, GPU-accelerated terminal emulator. If you use it:
    ```bash
