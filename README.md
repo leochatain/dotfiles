@@ -5,6 +5,9 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
 ## Features
 
 ### Zsh
+- **Powerlevel10k** - Fast, customizable prompt with git status and context info
+  - Requires a [Nerd Font](https://www.nerdfonts.com/) for icons
+  - Instant prompt for zero-lag experience
 - **oh-my-zsh** with curated plugins (gitfast, colored-man-pages, python)
 - **fzf** - Fuzzy finder for command history, files, and directories
   - Integrated with **fd** for faster file searching
@@ -53,7 +56,7 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
 
 2. Install dependencies (macOS):
    ```bash
-   brew install stow fzf fd bat eza git-delta zsh-autosuggestions zsh-syntax-highlighting
+   brew install stow fzf fd bat eza git-delta zsh-autosuggestions zsh-syntax-highlighting powerlevel10k font-meslo-lg-nerd-font
    ```
 
    On Linux:
@@ -62,11 +65,18 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
    sudo apt install stow fzf fd-find bat git-delta
 
    # Install eza (not in default repos)
-   https://github.com/eza-community/eza/blob/main/INSTALL.md
+   # See: https://github.com/eza-community/eza/blob/main/INSTALL.md
 
    # Install zsh plugins
    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+   # Install Powerlevel10k
+   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+   # Install MesloLGS Nerd Font
+   # Download from: https://github.com/romkatv/powerlevel10k#fonts
+   # Or install via your distro's package manager if available
    ```
 
    **Note:** On some Linux distributions, tools have different names:
@@ -104,6 +114,8 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
    brew install --cask ghostty
    stow ghostty
    ```
+
+   **Note:** The ghostty config is pre-configured to use MesloLGS Nerd Font for optimal display with Powerlevel10k.
 
 4. Reload shell:
    ```bash
