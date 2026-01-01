@@ -18,8 +18,13 @@ fi
 # oh-my-zsh Configuration
 # ============================================================================
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="kolo"
+# Note: ZSH_THEME is disabled because we're using Powerlevel10k installed via Homebrew
+# (sourced manually at the end of this file instead of through Oh My Zsh's theme system)
+# Previous theme was "kolo" - restore this if you uninstall Powerlevel10k
+ZSH_THEME=""
 COMPLETION_WAITING_DOTS="true"
+# Note: zsh-autosuggestions and zsh-syntax-highlighting are NOT in the plugins array
+# because they were installed via Homebrew and are sourced manually at the end of this file
 plugins=(gitfast colored-man-pages python)
 
 source $ZSH/oh-my-zsh.sh
@@ -144,20 +149,22 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 # ============================================================================
 # Shell Enhancements (must be at end)
 # ============================================================================
+# Note: The following plugins are installed via Homebrew and sourced manually.
+# This is the correct approach for Homebrew installations - they should NOT be
+# added to the Oh My Zsh plugins array above.
 
 # fzf - Fuzzy finder
 [ -f $BREW_PREFIX/opt/fzf/shell/completion.zsh ] && source $BREW_PREFIX/opt/fzf/shell/completion.zsh
 [ -f $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh ] && source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh
 
-# zsh-autosuggestions
+# zsh-autosuggestions (Homebrew installation)
 [ -f $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-#
-# Powerlevel 10k
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# zsh-syntax-highlighting must be at the end of the file
+# Powerlevel10k (Homebrew installation)
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# zsh-syntax-highlighting (Homebrew installation)
+# IMPORTANT: Must be sourced at the very end of .zshrc per official documentation
 [ -f $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.

@@ -65,7 +65,7 @@
   syntax-theme = 1337
 
 [alias]
-  st = status -sb
+  st = status
   co = checkout
   br = branch
   ci = commit
