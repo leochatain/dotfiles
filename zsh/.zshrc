@@ -26,7 +26,7 @@ DISABLE_AUTO_TITLE="true"        # Let tmux handle window titles
 COMPLETION_WAITING_DOTS="true"
 # Note: zsh-autosuggestions and zsh-syntax-highlighting are NOT in the plugins array
 # because they were installed via Homebrew and are sourced manually at the end of this file
-plugins=(gitfast colored-man-pages python)
+plugins=(git colored-man-pages python)
 
 source $ZSH/oh-my-zsh.sh
 
