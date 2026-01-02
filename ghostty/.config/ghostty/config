@@ -4,6 +4,8 @@
 # Ghostty is a fast, feature-rich, and cross-platform terminal emulator
 # https://ghostty.org/
 
+theme = Nightfox
+
 # ============
 # Font Settings
 # ============

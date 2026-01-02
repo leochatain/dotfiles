@@ -19,9 +19,9 @@ set expandtab               " Use spaces instead of tabs
 " ============================================================================
 set ruler                   " Show cursor position in status line
 set showcmd                 " Show incomplete commands in status line
+set background=dark         " My theme is dark, this looks better
 set nu                      " Show line numbers
 set wildmenu                " Enhanced command-line completion
-set background=light        " Optimize colors for light background
 set showmatch               " Highlight matching brackets/parentheses
 set lazyredraw              " Don't redraw during macros (improves performance)
 
