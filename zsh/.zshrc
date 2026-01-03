@@ -22,7 +22,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # (sourced manually at the end of this file instead of through Oh My Zsh's theme system)
 # Previous theme was "kolo" - restore this if you uninstall Powerlevel10k
 ZSH_THEME=""
-DISABLE_AUTO_TITLE="true"        # Let tmux handle window titles
 COMPLETION_WAITING_DOTS="true"
 # Note: zsh-autosuggestions and zsh-syntax-highlighting are NOT in the plugins array
 # because they were installed via Homebrew and are sourced manually at the end of this file
