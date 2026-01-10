@@ -83,6 +83,15 @@ if command -v bat &> /dev/null; then
   export BAT_THEME="1337"
 fi
 
+# tmux session selector
+ta() {
+  local session
+  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --prompt="Select session: ")
+  if [ -n "$session" ]; then
+    tmux attach-session -t "$session"
+  fi
+}
+
 
 # ============================================================================
 # External Tool Configurations
@@ -126,6 +135,7 @@ _fzf_comprun() {
     cd)           fzf --preview 'eza -a --tree --color=always {} | head -200' "$@" ;;
     export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
     ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    tmux)         tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf "$@" ;;
     *)            fzf --preview "bat -n --color=always --line-range :500 {}" "$@" ;;
   esac
 }
