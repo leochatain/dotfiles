@@ -227,6 +227,9 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # IMPORTANT: Must be sourced at the very end of .zshrc per official documentation
 [ -f $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Configure syntax highlighting colors (must be set AFTER sourcing the plugin)
+ZSH_HIGHLIGHT_STYLES[comment]='fg=cyan'
+
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/.p10k.zsh.
 [[ ! -f ~/.dotfiles/zsh/.p10k.zsh ]] || source ~/.dotfiles/zsh/.p10k.zsh
 export PATH="$HOME/.local/bin:$PATH"
