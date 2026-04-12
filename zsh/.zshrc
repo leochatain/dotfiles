@@ -25,7 +25,7 @@ ZSH_THEME=""
 COMPLETION_WAITING_DOTS="true"
 # Note: zsh-autosuggestions and zsh-syntax-highlighting are NOT in the plugins array
 # because they were installed via Homebrew and are sourced manually at the end of this file
-plugins=(git colored-man-pages python)
+plugins=(git colored-man-pages python zsh-claude-code-shell)
 
 source $ZSH/oh-my-zsh.sh
 

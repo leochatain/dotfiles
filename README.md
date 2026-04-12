@@ -8,7 +8,8 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
 - **Powerlevel10k** - Fast, customizable prompt with git status and context info
   - Requires a [Nerd Font](https://www.nerdfonts.com/) for icons
   - Instant prompt for zero-lag experience
-- **oh-my-zsh** with curated plugins (gitfast, colored-man-pages, python)
+- **oh-my-zsh** with curated plugins (git, colored-man-pages, python)
+- **[zsh-claude-code-shell](https://github.com/leochatain/zsh-claude-code-shell)** - Translate natural language to shell commands (`#?`) or get explanations (`#??`) via Claude Code
 - **fzf** - Fuzzy finder for command history, files, and directories
   - Integrated with **fd** for faster file searching
   - Smart previews using **bat** (files) and **eza** (directories)
