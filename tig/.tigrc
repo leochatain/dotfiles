@@ -1,0 +1,26 @@
+# Trim main view to match `git xl`: <hash> | <graph> <refs> <subject>
+# Date and author are hidden by default; toggle with D and A inside tig.
+set main-view = id:yes,color=auto date:yes,format=relative-compact author:no,format=abbreviated commit-title:graph=yes,refs=yes,overflow=no
+set id-width = 7
+
+# Colors closer to `git xl`
+color main-commit  red    default
+color main-head    yellow default bold
+color main-ref     yellow default
+color main-remote  green  default
+color main-tracked green  default bold
+color main-tag     cyan   default bold
+
+# Quality of life
+set tab-size = 2
+set vertical-split = no
+set show-changes = yes
+set diff-options = --patch-with-stat -m
+set mouse = yes
+
+# Vim-friendly navigation (read-only; no push/rebase bindings on purpose)
+bind generic g  move-first-line
+bind generic G  move-last-line
+bind generic <C-u> move-page-up
+bind generic <C-d> move-page-down
+bind generic Q  quit

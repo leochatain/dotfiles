@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal configuration files for git, tmux, vim, zsh, and ghostty.
+Personal configuration files for git, tig, tmux, vim, zsh, and ghostty.
 
 ## Features
 
@@ -32,6 +32,9 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
 - True color support
 - New windows/panes open in current directory
 
+### Tig
+- **[tig](https://jonas.github.io/tig/)** - ncurses git browser, main view trimmed to match `git xl` (hash + graph + refs + subject). Toggle date/author with `D`/`A`.
+
 ### Git
 - **delta** - Syntax-highlighted diffs with side-by-side view
 - Helpful aliases (`lg`, `st`, `amend`, `undo`, `uncommit`)
@@ -51,7 +54,7 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
 
 2. Install dependencies (macOS):
    ```bash
-   brew install stow fzf fd bat eza git-delta zsh-autosuggestions zsh-syntax-highlighting powerlevel10k font-meslo-lg-nerd-font
+   brew install stow fzf fd bat eza git-delta tig zsh-autosuggestions zsh-syntax-highlighting powerlevel10k font-meslo-lg-nerd-font
    ```
 
    On Linux (warning - yet untested):
@@ -96,7 +99,7 @@ Personal configuration files for git, tmux, vim, zsh, and ghostty.
 2. Backup existing configs and create symlinks:
    ```bash
    # Stow individual packages
-   stow git tmux vim zsh
+   stow git tig tmux vim zsh
 
    # Or stow everything
    stow */
