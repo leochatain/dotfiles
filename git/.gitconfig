@@ -25,6 +25,7 @@
 [core]
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   excludesfile = ~/.gitignore_global
+  pager = delta
 
 [init]
   defaultBranch = main
@@ -47,13 +48,29 @@
   prune = true
 
 [branch]
-  autoSetupMerge = always
+  autoSetupMerge = true
 
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 
-[core]
-  pager = delta
+[rebase]
+  autoStash = true
+  updateRefs = true
+
+[commit]
+  verbose = true
+
+[log]
+  date = iso
+
+[column]
+  ui = auto
+
+[help]
+  autocorrect = prompt
+
+[tag]
+  sort = -version:refname
 
 [interactive]
   diffFilter = delta --color-only
@@ -67,10 +84,15 @@
 [alias]
   st = status
   co = checkout
+  sw = switch
+  swc = switch -c
+  rs = restore
+  rss = restore --staged
   br = branch
   ci = commit
   cm = commit -m
   cam = commit -am
+  pushf = push --force-with-lease
   unstage = reset HEAD --
   last = log -1 HEAD
   xl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --oneline --all
