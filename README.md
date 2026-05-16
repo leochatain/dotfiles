@@ -37,11 +37,18 @@ Personal configuration files for git, tig, tmux, vim, zsh, and ghostty.
 
 ### Git
 - **delta** - Syntax-highlighted diffs with side-by-side view
-- Helpful aliases (`lg`, `st`, `amend`, `undo`, `uncommit`)
-- Better diff algorithm (histogram)
+- Helpful aliases:
+  - `xl` / `xlc` - Pretty graph log (all branches / current branch only)
+  - `xls` - `xl` with a header showing staged/unstaged/untracked counts
+  - `st`, `co`, `sw`/`swc`, `br`, `ci`/`cm`/`cam` - Common shortcuts
+  - `amend` (no-edit) / `reword` (edit message only)
+  - `undo` / `uncommit` - Soft reset HEAD by one
+  - `pushf` - `push --force-with-lease`
+- Better diff algorithm (histogram), `zdiff3` conflict style, `colorMoved=zebra`
 - Auto-prune on fetch
-- Rebase by default on pull
+- Rebase by default on pull, with `autoStash` and `updateRefs` for stacked branches
 - Rerere enabled for conflict resolution
+- `push.autoSetupRemote` so `git push` Just Works on new branches
 
 ## Installation
 
