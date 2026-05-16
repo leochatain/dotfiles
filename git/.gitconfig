@@ -22,10 +22,20 @@
   changed = green
   untracked = cyan
 
+[color "decorate"]
+  HEAD = bold cyan
+  branch = bold green
+  remoteBranch = red
+  tag = bold yellow
+  stash = magenta
+
 [core]
   whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
   excludesfile = ~/.gitignore_global
   pager = delta
+
+[pager]
+  log = less -FRX
 
 [init]
   defaultBranch = main
@@ -56,9 +66,6 @@
 [rebase]
   autoStash = true
   updateRefs = true
-
-[commit]
-  verbose = true
 
 [log]
   date = iso
@@ -95,9 +102,11 @@
   pushf = push --force-with-lease
   unstage = reset HEAD --
   last = log -1 HEAD
-  xl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --oneline --all
-  xlc = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --oneline
+  xl = log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --oneline --all
+  xlc = log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --oneline
+  xls = "!f() { ESC=$(printf '\\033'); S=$(git diff --cached --name-only 2>/dev/null | wc -l | tr -d ' '); U=$(git diff --name-only 2>/dev/null | wc -l | tr -d ' '); T=$(git ls-files --others --exclude-standard 2>/dev/null | wc -l | tr -d ' '); H=\"\"; SEP=\"\"; [ $S -gt 0 ] && { H=\"$H$SEP${ESC}[38;5;178m+$S staged${ESC}[m\"; SEP=\"  \"; }; [ $U -gt 0 ] && { H=\"$H$SEP${ESC}[38;5;178m!$U unstaged${ESC}[m\"; SEP=\"  \"; }; [ $T -gt 0 ] && { H=\"$H$SEP${ESC}[36m?$T untracked${ESC}[m\"; SEP=\"  \"; }; { [ -n \"$H\" ] && echo \"[ $H ]\"; git -c color.ui=always --no-pager xl \"$@\" | awk '/HEAD/{sub(/\\*/,\"●\");gsub(/\\033\\[m/,\"\\033[m\\033[1m\");printf \"%c[1m%s%c[22m\\n\",27,$0,27;next}1'; } | less -FRX; }; f \"$@\""
   amend = commit --amend --no-edit
+  reword = commit --amend --only
   undo = reset --soft HEAD^
   uncommit = reset --soft HEAD~1
   tags = tag -l
